@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>История</title>
+    <link th:href="@{/css/history.css}" rel="stylesheet">
+</head>
+<body>
+<div class="page">
+    <div class="form">
+        <form>
+            <h1>История</h1>
+            <div class="hist">
+                <input class="date" type="date">
+            </div>
+            <div class="hist">
+                <select>
+                    <option>USD(Доллар США)</option>
+                    <option>RUB(Российский рубль)</option>
+                    <option>AUD(Австралийский доллар)</option>
+                    <option>GBP(Фунт стерлингов Соединенного королевства)</option>
+                </select>
+            </div>
+            <div class="hist">
+                <select>
+                    <option>RUB(Российский рубль)</option>
+                    <option>USD(Доллар США)</option>
+                    <option>AUD(Австралийский доллар)</option>
+                    <option>GBP(Фунт стерлингов Соединенного королевства)</option>
+                </select>
+            </div>
+            <div th:switch="${histories}">
+                <h2 th:case="null">No histories found!</h2>
+                <div th:case="*">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Исходная валюта</th>
+                            <th>Целевая валюта</th>
+                            <th>Исходная сумма</th>
+                            <th>Полученная сумма</th>
+                            <th>Дата</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="history : ${histories}">
+                            <td th:text="${history.originalCurrency}"></td>
+                            <td th:text="${history.objectiveCurrency}"></td>
+                            <td th:text="${history.originalSum}"></td>
+                            <td th:text="${history.derivableSum}"></td>
+                            <td th:text="${history.date}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button>Поиск</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

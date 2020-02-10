@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Конвертер</title>
+    <link th:href="@{/css/converter.css}" rel="stylesheet">
+</head>
+<body>
+<div class="page">
+    <div class="form">
+        <form>
+            <h1>Конвертер</h1>
+            <div>
+                <select>
+                    <option>USD(Доллар США)</option>
+                    <option>RUB(Российский рубль)</option>
+                    <option>AUD(Австралийский доллар)</option>
+                    <option>GBP(Фунт стерлингов Соединенного королевства)</option>
+                </select>
+            </div>
+            <div>
+                <select>
+                    <option>RUB(Российский рубль)</option>
+                    <option>USD(Доллар США)</option>
+                    <option>AUD(Австралийский доллар)</option>
+                    <option>GBP(Фунт стерлингов Соединенного королевства)</option>
+                </select>
+            </div>
+            <input type="text" placeholder="Исходная валюта"/>
+            <input type="text" placeholder="Целевая валюта"/>
+            <button>Конвертировать</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

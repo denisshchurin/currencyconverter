@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>История</title>
+    <link th:href="@{/css/history.css}" rel="stylesheet">
+</head>
+<body>
+<div class="page">
+    <div class="form">
+        <form action="#" th:action="@{/history}" th:object="${history}" method="post">
+            <h1>История</h1>
+            <div class="hist">
+                <input class="date" type="date" th:feild="*{date}">
+            </div>
+            <div class="hist">
+                <select th:feild="*{originalCurrency}">
+                    <option th:each="valute : ${valutes}"
+                            th:value="${valute}"
+                            th:utext="${valute}">
+                    </option>
+                </select>
+            </div>
+            <div class="hist">
+                <select th:feild="*{objectiveCurrency}">
+                    <option th:each="valute : ${valutes}"
+                            th:value="${valute}"
+                            th:utext="${valute}">
+                    </option>
+                </select>
+            </div>
+            <input type="hidden" th:feild="*{rate}" th:value="25">
+            <input type="hidden" th:feild="*{originalSum}" th:value="100">
+            <input type="hidden" th:feild="*{derivableSum}" th:value="${200}">
+            <input type="hidden" th:feild="*{user}" th:value="${Denis}">
+            <div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Исходная валюта</th>
+                        <th>Целевая валюта</th>
+                        <th>Исходная сумма</th>
+                        <th>Полученная сумма</th>
+                        <th>Дата</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <button type="submit">Поиск</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
